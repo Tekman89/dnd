@@ -1,0 +1,33 @@
+{
+    "env": {
+        "es6": true,
+        "node": true
+    },
+	"root" : true,
+    "extends": [
+        "airbnb-base"
+    ],
+	"plugins": ["import"],
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"paths": ["src"]
+			}
+		}
+	},
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "rules": {
+		"indent": ["error", 4],
+		"no-plusplus": ["off"],
+		"arrow-parens": ["error", "as-needed"],
+		"comma-dangle": ["error", "never"],
+		"consistent-return": ["off"]
+    }
+}

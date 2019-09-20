@@ -1,0 +1,28 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Jorge Antunes <jorge.antunes@academiadecodigo.org>",
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_PATH=$NODE_PATH:src:. babel-node src/index.js"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/node": "^7.6.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@hapi/boom": "^7.4.3",
+    "@hapi/hapi": "^18.4.0",
+    "@hapi/joi": "^16.1.1",
+    "babel-preset-env": "^1.7.0",
+    "camelcase": "^5.3.1",
+    "cheerio": "^1.0.0-rc.3",
+    "dotenv": "^8.1.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  }
+}
