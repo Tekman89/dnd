@@ -1,13 +1,25 @@
+import { AuthenticationService } from 'services';
+import Boom from '@hapi/boom';
+
 const apiBasePath = '/api';
 
 
 const routes = [{
     method: 'POST',
     path: `${apiBasePath}/login`,
-    handler: request => {
-        console.log(request.payload);
-        return 200;
+    options: {
+        auth: false
+    },
+    handler: async (request, h) => {
+        try {
+            const token = await AuthenticationService.authenticate(request.payload.name, request.payload.password, '1d');
+            return h.response({ success: true }).header('Server-Authorization', token);
+        } catch (err) {
+            console.log(err);
+            return Boom.unauthorized(err.message);
+        }
     }
+
 }];
 
 export default routes;

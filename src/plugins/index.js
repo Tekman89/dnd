@@ -1,6 +1,5 @@
 import logger from './logger';
+import auth from './authentication';
 
-const plugins = [logger];
 
-
-export default plugins;
+export default [logger, auth];
