@@ -1,6 +1,6 @@
 import Hapi from '@hapi/hapi';
-import routes from 'backend/routes';
-import plugins from 'backend/plugins';
+import routes from 'routes';
+import plugins from 'plugins';
 import fs from 'fs';
 
 const server = new Hapi.Server({
@@ -11,13 +11,11 @@ const server = new Hapi.Server({
         cert: fs.readFileSync('config/cert/domain.crt')
     },
     routes: {
-        config: {
-            security: {
-                hsts: {
-                    maxAge: 3600,
-                    includeSubDomains: true,
-                    preload: true
-                }
+        security: {
+            hsts: {
+                maxAge: 3600,
+                includeSubDomains: true,
+                preload: true
             }
         }
     }
