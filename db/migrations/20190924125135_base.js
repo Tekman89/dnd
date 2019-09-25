@@ -30,7 +30,7 @@ exports.up = function up(knex) {
             table.string('name').unique();
             table.timestamps();
         })
-    ]).then(Promise.all([
+    ]).then(() => Promise.all([
         knex.schema.createTable('user_role', table => {
             table.increments().primary();
             table.integer('user_id').unsigned().references('id').inTable('user');
@@ -69,6 +69,26 @@ exports.up = function up(knex) {
             table.string('name').unique();
             table.integer('associated_stat_id').unsigned().references('id').inTable('stat');
             table.timestamps();
+        })
+    ])).then(() => Promise.all([
+        knex.schema.createTable('character_skills', table => {
+            table.increments().primary();
+            table.integer('character_id').unsigned().references('id').inTable('character');
+            table.integer('skill_id').unsigned().references('id').inTable('skill');
+            table.timestamps();
+        }),
+
+        knex.schema.createTable('campaign', table => {
+            table.increments().primary();
+            table.string('name');
+            table.integer('dungeon_master_id').unsigned().references('id').inTable('user');
+        })
+    ])).then(() => Promise.all([
+        knex.schema.createTable('campaign_characters', table => {
+            table.increments().primary();
+            table.integer('character_id').unsigned().references('id').inTable('character');
+            table.integer('campaign_id').unsigned().references('id').inTable('campaign');
+            table.boolean('alive');
         })
     ]));
 };
