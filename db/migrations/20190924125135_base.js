@@ -1,6 +1,7 @@
 import CastingTime from 'enums/casting-time';
 import DamageType from 'enums/damage-type';
 import UserType from 'enums/user-type';
+import MagicSchool from 'enums/magic-school';
 
 exports.up = function up(knex) {
     return Promise.all([
@@ -19,6 +20,7 @@ exports.up = function up(knex) {
         knex.schema.createTable('race', table => {
             table.increments().primary();
             table.string('name').unique();
+            table.string('description', 10000);
         }),
 
         knex.schema.createTable('class', table => {
@@ -33,7 +35,7 @@ exports.up = function up(knex) {
 
         knex.schema.createTable('magic_school', table => {
             table.increments().primary();
-            table.string('name');
+            table.enum('name', Object.keys(MagicSchool).map(key => MagicSchool[key]));
         }),
 
         knex.schema.createTable('damage_type', table => {

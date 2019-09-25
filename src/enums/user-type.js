@@ -1,5 +1,5 @@
 export default {
-    DM: 'DM',
-    ADMIN: 'ADMIN',
-    PLAYER: 'PLAYER'
+    DM: 'Dungeon Master',
+    ADMIN: 'Administrator',
+    PLAYER: 'Player'
 };
