@@ -1,12 +1,14 @@
 import bcrypt from 'bcrypt';
 
+const saltRounds = 10;
+
 const users = [{
     name: 'admin',
-    password: bcrypt.hashSync('admin', 10)
+    password: bcrypt.hashSync('admin', saltRounds)
 },
 {
     name: 'super',
-    password: bcrypt.hashSync('user', 10)
+    password: bcrypt.hashSync('user', saltRounds)
 }];
 
 
@@ -17,7 +19,7 @@ async function get(name) {
 async function create(payload) {
     return users.push({
         name: payload.name,
-        password: bcrypt.hashSync(payload.password, 10)
+        password: bcrypt.hashSync(payload.password, saltRounds)
     });
 }
 

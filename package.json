@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "start": "NODE_PATH=$NODE_PATH:src:. babel-node src/index.js",
-	"hash": "babel-node utils/generate-hash.js"
+    "hash": "babel-node src/utils/generate-hash.js",
+    "schema": "NODE_PATH=$NODE_PATH:src:. babel-node src/utils/schema.js"
   },
   "dependencies": {
     "@babel/cli": "^7.6.0",
@@ -28,8 +29,11 @@
     "eslint-plugin-import": "^2.18.2",
     "hapi-auth-jwt2": "^8.6.2",
     "jsonwebtoken": "^8.5.1",
+    "knex": "^0.19.4",
+    "objection": "^1.6.11",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
-    "rotating-file-stream": "^1.4.3"
+    "rotating-file-stream": "^1.4.3",
+    "sqlite3": "^4.1.0"
   }
 }

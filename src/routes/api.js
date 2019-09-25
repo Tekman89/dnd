@@ -15,11 +15,10 @@ const routes = [{
             const token = await AuthenticationService.authenticate(request.payload.name, request.payload.password, '1d');
             return h.response({ success: true }).header('Server-Authorization', token);
         } catch (err) {
-            console.log(err);
+            request.log('error', request);
             return Boom.unauthorized(err.message);
         }
     }
-
 }];
 
 export default routes;
