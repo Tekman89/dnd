@@ -1,5 +1,5 @@
 import secret from 'config';
-import { UserService } from 'services';
+import UserService from 'modules/common/services/user';
 import JWT from 'hapi-auth-jwt2';
 
 

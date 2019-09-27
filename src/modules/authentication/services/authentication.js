@@ -1,7 +1,7 @@
 import secret from 'config';
 import JsonWebToken from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import * as UserDao from 'daos/user';
+import UserDao from '../daos/user';
 
 
 function getSignedToken(payload, expiresIn) {

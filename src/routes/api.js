@@ -1,4 +1,4 @@
-import * as AuthenticationController from 'controllers/authentication';
+import AuthenticationController from 'modules/authentication/controllers/authentication';
 
 const apiBasePath = '/api';
 
@@ -20,12 +20,13 @@ const routes = [{
                     console.log('here');
                     console.log(JSON.parse(param));
                     console.log(request);
+                    return true;
                 }
             }
         }
     },
     async handler(request, h) {
-        return h.success(200);
+        return h.response({ success: true });
     }
 }];
 
