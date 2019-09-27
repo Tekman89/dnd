@@ -1,3 +1,3 @@
-import api from './api';
+import authRoutes from 'modules/authentication/routes';
 
-export default [api];
+export default [...authRoutes];
