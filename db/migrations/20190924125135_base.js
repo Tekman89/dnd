@@ -49,7 +49,7 @@ exports.up = function up(knex) {
         })
 
     ]).then(() => Promise.all([
-        knex.schema.createTable('user_role', table => {
+        knex.schema.createTable('user_roles', table => {
             table.increments().primary();
             table.integer('user_id').unsigned().references('id').inTable('user');
             table.integer('role_id').unsigned().references('id').inTable('role');

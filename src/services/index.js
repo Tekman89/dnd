@@ -1,5 +1,7 @@
-import CustomerService from './customer';
+import * as UserService from './user';
 import AuthenticationService from './authentication';
+import * as AuthorizationService from './authorization';
 
-export { CustomerService };
+export { UserService };
 export { AuthenticationService };
+export { AuthorizationService };

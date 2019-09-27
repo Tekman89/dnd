@@ -1,7 +1,7 @@
 import secret from 'config';
 import JsonWebToken from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import CustomerService from './customer';
+import * as UserDao from 'daos/user';
 
 
 function getSignedToken(payload, expiresIn) {
@@ -10,7 +10,12 @@ function getSignedToken(payload, expiresIn) {
 }
 
 async function authenticate(name, password, expiresIn) {
-    const user = await CustomerService.get(name);
+    let user;
+    try {
+        user = await UserDao.findByName(name);
+    } catch (err) {
+        throw Error('internal server error');
+    }
 
     if (!user || !bcrypt.compare(user.password, password)) {
         throw Error('invalid credentials');

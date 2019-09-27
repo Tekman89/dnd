@@ -1,12 +1,12 @@
 import crypto from 'crypto';
-import { CustomerService } from 'services';
+import { UserService } from 'services';
 import JWT from 'hapi-auth-jwt2';
 
 const secret = crypto.randomBytes(64).toString('base64');
 
 async function validate(decoded) {
     try {
-        await CustomerService.get(decoded.name);
+        await UserService.get(decoded.name);
         return { isValid: true };
     } catch (err) {
         return { isValid: false };
@@ -28,5 +28,6 @@ async function register(server) {
 
     server.auth.default(strategyName);
 }
+
 
 export default { name: 'authentication', register };
