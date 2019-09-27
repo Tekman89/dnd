@@ -110,6 +110,8 @@ async function register(server) {
 
     server.events.on('log', serverLog);
     server.events.on('request', requestLog);
+
+    server.log('info', 'registered plugin logger');
 }
 
 export function log(tags, event) {

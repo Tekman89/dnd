@@ -4,11 +4,8 @@
 
 import Knex from 'knex';
 import { Model } from 'objection';
-import dotenv from 'dotenv';
 
 import knexConfig from 'knexfile';
-
-dotenv.config();
 
 
 async function register(server) {
@@ -17,6 +14,7 @@ async function register(server) {
 
     // make sure that database connection is closed when server stops.
     server.ext('onPostStop', () => knex.destroy());
+    server.log('info', 'registered plugin database');
 }
 
 export default {

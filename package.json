@@ -7,6 +7,7 @@
   "scripts": {
     "start": "NODE_PATH=$NODE_PATH:src:. babel-node src/index.js",
     "hash": "babel-node src/utils/generate-hash.js",
+    "secret": "babel-node src/utils/generate-secret.js",
     "schema": "NODE_PATH=$NODE_PATH:src:. babel-node src/utils/schema.js"
   },
   "dependencies": {

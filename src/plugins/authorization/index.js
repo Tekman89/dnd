@@ -9,6 +9,8 @@ async function register(server) {
             roles: Object.keys(UserTypes).map(type => UserTypes[type])
         }
     });
+
+    server.log('info', 'registered plugin authorization');
 }
 
 

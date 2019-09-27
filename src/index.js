@@ -2,6 +2,9 @@ import Hapi from '@hapi/hapi';
 import routes from 'routes';
 import plugins from 'plugins';
 import fs from 'fs';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const server = new Hapi.Server({
     port: 9999,
