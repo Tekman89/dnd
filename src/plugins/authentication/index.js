@@ -4,7 +4,6 @@ import JWT from 'hapi-auth-jwt2';
 
 
 async function validate(decoded) {
-    console.log(decoded);
     try {
         await UserService.findByName(decoded.name);
         return { isValid: true };

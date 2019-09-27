@@ -9,7 +9,7 @@ function getSignedToken(payload, expiresIn) {
     return JsonWebToken.sign(payload, key, { expiresIn });
 }
 
-async function authenticate(name, password, expiresIn) {
+async function authenticate(name, password, expiresIn = '1h') {
     let user;
     try {
         user = await UserDao.findByName(name);
