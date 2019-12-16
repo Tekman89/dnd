@@ -2,7 +2,7 @@ import Boom from '@hapi/boom';
 import AuthenticationService from 'modules/authentication/services/authentication';
 
 
-async function authenticate(request, h) {
+async function login(request, h) {
     try {
         const token = await AuthenticationService.authenticate(request.payload.name, request.payload.password, '1d');
         return h.response({ success: true }).header('Server-Authorization', token);
@@ -12,4 +12,4 @@ async function authenticate(request, h) {
     }
 }
 
-export default { authenticate };
+export default { login };

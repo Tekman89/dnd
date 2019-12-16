@@ -1,4 +1,4 @@
-import BaseModel from 'modules/common/models/base';
+import BaseModel from 'models/base';
 
 class User extends BaseModel {
     static get tableName() {

@@ -1,5 +1,5 @@
 import Roles from 'enums/user-type';
-import BaseModel from 'modules/common/models/base';
+import BaseModel from 'models/base';
 
 class Role extends BaseModel {
     static get tableName() {

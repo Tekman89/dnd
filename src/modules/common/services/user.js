@@ -1,8 +1,8 @@
-import UserDao from 'modules/authentication/daos/user';
+import { models as Repository } from 'plugins/repository';
 
 
 async function get(id) {
-    const user = await UserDao.find(id).eager('roles');
+    const user = await Repository.User.find(id).eager('roles');
 
     if (!user) {
         throw Error('no such user');
@@ -12,7 +12,7 @@ async function get(id) {
 }
 
 async function findByName(name) {
-    const user = await UserDao.findByName(name);
+    const user = await Repository.User.findByName(name);
 
     if (!user) {
         throw Error('no such user');

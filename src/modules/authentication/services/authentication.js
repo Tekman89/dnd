@@ -1,7 +1,7 @@
 import secret from 'config';
 import JsonWebToken from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import UserDao from '../daos/user';
+import { models as Repository } from 'plugins/repository';
 
 
 function getSignedToken(payload, expiresIn) {
@@ -12,7 +12,8 @@ function getSignedToken(payload, expiresIn) {
 async function authenticate(name, password, expiresIn = '1h') {
     let user;
     try {
-        user = await UserDao.findByName(name);
+        console.log(Repository);
+        user = Repository.User.findBy('name', name);
     } catch (err) {
         throw Error('internal server error');
     }
