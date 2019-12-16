@@ -124,3 +124,7 @@ typings/
 
 
 db/dev.sqlite3
+**/**.key
+**/**.crt
+**/**.pem
+
